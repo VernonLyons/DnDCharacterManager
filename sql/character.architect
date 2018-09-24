@@ -241,7 +241,7 @@
     <column id="COL72" populated="true" UUID="cf3ed405-e412-426a-bc78-4b857bd61bb5" autoIncrement="false" autoIncrementSequenceName="Spell_SpellsId_seq" defaultValue="" name="SpellsId" nullable="0" physicalName="SpellsId" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL73" populated="true" UUID="cac0b36c-476f-4c20-9dba-407436016ef3" autoIncrement="false" autoIncrementSequenceName="Spell_SpellsName_seq" defaultValue="" name="SpellsName" nullable="0" physicalName="SpellsName" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL73" populated="true" UUID="cac0b36c-476f-4c20-9dba-407436016ef3" autoIncrement="false" autoIncrementSequenceName="Spell_SpellsName_seq" defaultValue="" name="SpellsName" nullable="0" physicalName="SpellsName" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL74" populated="true" UUID="27df78ab-2380-4d06-af56-6319123ca3b7" autoIncrement="false" autoIncrementSequenceName="Spell_SpellsDescription_seq" defaultValue="" name="SpellsDescription" nullable="0" physicalName="SpellsDescription" precision="1000" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
