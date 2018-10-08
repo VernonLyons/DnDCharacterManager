@@ -83,7 +83,7 @@ CREATE TABLE BackgroundAbility (
 
 CREATE TABLE Spell (
                 SpellsId INT NOT NULL,
-                SpellsName VARCHAR NOT NULL,
+                SpellsName VARCHAR(50) NOT NULL,
                 SpellsDescription VARCHAR(1000) NOT NULL,
                 PRIMARY KEY (SpellsId)
 );
@@ -136,10 +136,10 @@ CREATE TABLE RaceAbility (
 );
 
 
-CREATE TABLE Character_1 (
+CREATE TABLE GameCharacter (
                 CharacterId INT AUTO_INCREMENT NOT NULL,
                 CharacterName VARCHAR(50) NOT NULL,
-                Level INT AUTO_INCREMENT NOT NULL,
+                Level INT NOT NULL,
                 Strength INT NOT NULL,
                 Dexterity INT NOT NULL,
                 Constitution INT NOT NULL,
@@ -207,7 +207,7 @@ REFERENCES Ability (AbilityId)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE Character_1 ADD CONSTRAINT classtype_character_fk
+ALTER TABLE GameCharacter ADD CONSTRAINT classtype_character_fk
 FOREIGN KEY (ClassTypeId)
 REFERENCES ClassType (ClassTypeId)
 ON DELETE NO ACTION
@@ -219,13 +219,13 @@ REFERENCES ClassType (ClassTypeId)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE Character_1 ADD CONSTRAINT user_character_fk
+ALTER TABLE GameCharacter ADD CONSTRAINT user_character_fk
 FOREIGN KEY (UserId)
 REFERENCES User (UserId)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE Character_1 ADD CONSTRAINT background_character_fk
+ALTER TABLE GameCharacter ADD CONSTRAINT background_character_fk
 FOREIGN KEY (BackgroundId)
 REFERENCES Background (BackgroundId)
 ON DELETE NO ACTION
@@ -249,7 +249,7 @@ REFERENCES Feat (FeatsId)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE Character_1 ADD CONSTRAINT race_character_fk
+ALTER TABLE GameCharacter ADD CONSTRAINT race_character_fk
 FOREIGN KEY (RaceId)
 REFERENCES Race (RaceId)
 ON DELETE NO ACTION
@@ -263,12 +263,12 @@ ON UPDATE NO ACTION;
 
 ALTER TABLE SpellsList ADD CONSTRAINT character_spellslist_fk
 FOREIGN KEY (CharacterId)
-REFERENCES Character_1 (CharacterId)
+REFERENCES GameCharacter (CharacterId)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 ALTER TABLE FeatsList ADD CONSTRAINT character_featslist_fk
 FOREIGN KEY (CharacterId)
-REFERENCES Character_1 (CharacterId)
+REFERENCES GameCharacter (CharacterId)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
