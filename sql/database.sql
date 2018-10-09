@@ -272,3 +272,4 @@ FOREIGN KEY (CharacterId)
 REFERENCES GameCharacter (CharacterId)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
+dnddnd
