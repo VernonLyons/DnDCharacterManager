@@ -1,12 +1,15 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class ClassType
 {
-    @Id private int classTypeId;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private int classTypeId;
+    private String classTypeName;
     private int hitDice;
     private int acrobatics;
     private int animalHandling;
@@ -29,6 +32,16 @@ public class ClassType
     public int getClassTypeId()
     {
         return classTypeId;
+    }
+
+    public String getClassTypeName()
+    {
+        return classTypeName;
+    }
+
+    public void setClassTypeName(String classTypeName)
+    {
+        this.classTypeName = classTypeName;
     }
 
     public int getHitDice()

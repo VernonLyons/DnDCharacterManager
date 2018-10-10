@@ -1,31 +1,25 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Character
+public class GameCharacter
 {
-    @Id private int characterId;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private int characterId;
     private String characterName;
     private int level;
-    private int proficiencyBonus = getProficiencyBonus(level);
     private int strength;
     private int dexterity;
     private int constitution;
     private int intelligence;
     private int wisdom;
     private int charisma;
-    private int strengthModifier = getStrengthModifier();
-    private int dexterityModifier = getDexterityModifier();
-    private int constitutionModifier = getConstitutionModifier();
-    private int intelligenceModifier = getIntelligenceModifier();
-    private int wisdomModifier = getWisdomModifier();
-    private int charismaModifier = getCharismaModifier();
     private int raceId;
     private int backgroundId;
     private int hitDice;
-    private int healthTotal;
     private int classTypeId;
     private int acrobatics;
     private int animalHandling;
@@ -70,8 +64,10 @@ public class Character
         this.level = level;
     }
 
-    public int getProficiencyBonus(int level)
+    public int getProficiencyBonus()
     {
+        int proficiencyBonus;
+
         if (level == 5)
         {
             proficiencyBonus = 3;
@@ -158,42 +154,42 @@ public class Character
 
     public int getStrengthModifier()
     {
-        strengthModifier = (strength - 10) / 2;
+        int strengthModifier = (strength - 10) / 2;
 
         return strengthModifier;
     }
 
     public int getDexterityModifier()
     {
-        dexterityModifier = (dexterity - 10) / 2;
+        int dexterityModifier = (dexterity - 10) / 2;
 
         return dexterityModifier;
     }
 
     public int getConstitutionModifier()
     {
-        constitutionModifier = (constitution - 10) / 2;
+        int constitutionModifier = (constitution - 10) / 2;
 
         return constitutionModifier;
     }
 
     public int getIntelligenceModifier()
     {
-        intelligenceModifier = (intelligence - 10) / 2;
+        int intelligenceModifier = (intelligence - 10) / 2;
 
         return intelligenceModifier;
     }
 
     public int getWisdomModifier()
     {
-        wisdomModifier = (wisdom - 10) / 2;
+        int wisdomModifier = (wisdom - 10) / 2;
 
         return wisdomModifier;
     }
 
     public int getCharismaModifier()
     {
-        charismaModifier = (charisma - 10) / 2;
+        int charismaModifier = (charisma - 10) / 2;
 
         return charismaModifier;
     }
@@ -233,22 +229,22 @@ public class Character
         int averageHP;
         if (hitDice == 12)
         {
-            averageHP = 7 + constitutionModifier;
+            averageHP = 7 + getConstitutionModifier();
         }
         else if (hitDice == 10)
         {
-            averageHP = 6 + constitutionModifier;
+            averageHP = 6 + getConstitutionModifier();
         }
         else if (hitDice == 8)
         {
-            averageHP = 5 + constitutionModifier;
+            averageHP = 5 + getConstitutionModifier();
         }
         else
         {
-            averageHP = 4 + constitutionModifier;
+            averageHP = 4 + getConstitutionModifier();
         }
 
-        healthTotal = (hitDice + constitutionModifier) + (averageHP * (level - 1));
+        int healthTotal = (hitDice + getConstitutionModifier()) + (averageHP * (level - 1));
 
         return healthTotal;
     }

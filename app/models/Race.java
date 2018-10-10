@@ -1,12 +1,14 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Race
 {
-    @Id private int raceId;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private int raceId;
     private int raceStrMod;
     private int raceDexMod;
     private int raceConMod;

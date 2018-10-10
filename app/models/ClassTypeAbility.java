@@ -1,12 +1,14 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class ClassTypeAbility
 {
-    @Id private int classTypeAbilityId;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private int classTypeAbilityId;
     private int classTypeId;
     private int abilityId;
     private int minLevel;

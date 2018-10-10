@@ -1,12 +1,14 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Background
 {
-    @Id private int backgroundId;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private int backgroundId;
     private int acrobatics;
     private int animalHandling;
     private int arcana;
