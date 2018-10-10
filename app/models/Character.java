@@ -9,19 +9,19 @@ public class Character
     @Id private int characterId;
     private String characterName;
     private int level;
-    private int proficiencyBonus;
+    private int proficiencyBonus = getProficiencyBonus(level);
     private int strength;
     private int dexterity;
     private int constitution;
     private int intelligence;
     private int wisdom;
     private int charisma;
-    private int strengthModifier;
-    private int dexterityModifier;
-    private int constitutionModifier;
-    private int intelligenceModifier;
-    private int wisdomModifier;
-    private int charismaModifier;
+    private int strengthModifier = getStrengthModifier();
+    private int dexterityModifier = getDexterityModifier();
+    private int constitutionModifier = getConstitutionModifier();
+    private int intelligenceModifier = getIntelligenceModifier();
+    private int wisdomModifier = getWisdomModifier();
+    private int charismaModifier = getCharismaModifier();
     private int raceId;
     private int backgroundId;
     private int hitDice;
@@ -86,6 +86,8 @@ public class Character
 
     public int getStrength()
     {
+        DieRoll dieRoll = new DieRoll();
+        strength = dieRoll.getStrValue();
         return strength;
     }
 
@@ -96,6 +98,8 @@ public class Character
 
     public int getDexterity()
     {
+        DieRoll dieRoll = new DieRoll();
+        dexterity = dieRoll.getDexValue();
         return dexterity;
     }
 
@@ -106,6 +110,8 @@ public class Character
 
     public int getConstitution()
     {
+        DieRoll dieRoll = new DieRoll();
+        constitution = dieRoll.getConValue();
         return constitution;
     }
 
@@ -116,6 +122,8 @@ public class Character
 
     public int getIntelligence()
     {
+        DieRoll dieRoll = new DieRoll();
+        intelligence = dieRoll.getIntValue();
         return intelligence;
     }
 
@@ -126,6 +134,8 @@ public class Character
 
     public int getWisdom()
     {
+        DieRoll dieRoll = new DieRoll();
+        wisdom = dieRoll.getWisValue();
         return wisdom;
     }
 
@@ -136,12 +146,56 @@ public class Character
 
     public int getCharisma()
     {
+        DieRoll dieRoll = new DieRoll();
+        charisma = dieRoll.getChaValue();
         return charisma;
     }
 
     public void setCharisma(int charisma)
     {
         this.charisma = charisma;
+    }
+
+    public int getStrengthModifier()
+    {
+        strengthModifier = (strength - 10) / 2;
+
+        return strengthModifier;
+    }
+
+    public int getDexterityModifier()
+    {
+        dexterityModifier = (dexterity - 10) / 2;
+
+        return dexterityModifier;
+    }
+
+    public int getConstitutionModifier()
+    {
+        constitutionModifier = (constitution - 10) / 2;
+
+        return constitutionModifier;
+    }
+
+    public int getIntelligenceModifier()
+    {
+        intelligenceModifier = (intelligence - 10) / 2;
+
+        return intelligenceModifier;
+    }
+
+    public int getWisdomModifier()
+    {
+        wisdomModifier = (wisdom - 10) / 2;
+
+        return wisdomModifier;
+    }
+
+    public int getCharismaModifier()
+    {
+        charismaModifier = (charisma - 10) / 2;
+
+        return charismaModifier;
     }
 
     public int getRaceId()

@@ -1,7 +1,9 @@
 package models;
 
+import javax.persistence.Entity;
 import java.util.Random;
 
+@Entity
 public class DieRoll
 {
     private int strValue;

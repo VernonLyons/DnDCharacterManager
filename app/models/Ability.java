@@ -23,9 +23,4 @@ public class Ability
     {
         return abilityName;
     }
-
-    public void setAbilityName(String abilityName)
-    {
-        this.abilityName = abilityName;
-    }
 }

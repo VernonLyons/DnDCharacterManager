@@ -4,10 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class ClassType
+public class Race
 {
-    @Id private int classTypeId;
-    private int hitDice;
+    @Id private int raceId;
+    private int raceStrMod;
+    private int raceDexMod;
+    private int raceConMod;
+    private int raceIntMod;
+    private int raceWisMod;
+    private int raceChaMod;
     private int acrobatics;
     private int animalHandling;
     private int arcana;
@@ -26,19 +31,69 @@ public class ClassType
     private int stealth;
     private int survival;
 
-    public int getClassTypeId()
+    public int getRaceId()
     {
-        return classTypeId;
+        return raceId;
     }
 
-    public int getHitDice()
+    public int getRaceStrMod()
     {
-        return hitDice;
+        return raceStrMod;
     }
 
-    public void setHitDice(int hitDice)
+    public void setRaceStrMod(int raceStrMod)
     {
-        this.hitDice = hitDice;
+        this.raceStrMod = raceStrMod;
+    }
+
+    public int getRaceDexMod()
+    {
+        return raceDexMod;
+    }
+
+    public void setRaceDexMod(int raceDexMod)
+    {
+        this.raceDexMod = raceDexMod;
+    }
+
+    public int getRaceConMod()
+    {
+        return raceConMod;
+    }
+
+    public void setRaceConMod(int raceConMod)
+    {
+        this.raceConMod = raceConMod;
+    }
+
+    public int getRaceIntMod()
+    {
+        return raceIntMod;
+    }
+
+    public void setRaceIntMod(int raceIntMod)
+    {
+        this.raceIntMod = raceIntMod;
+    }
+
+    public int getRaceWisMod()
+    {
+        return raceWisMod;
+    }
+
+    public void setRaceWisMod(int raceWisMod)
+    {
+        this.raceWisMod = raceWisMod;
+    }
+
+    public int getRaceChaMod()
+    {
+        return raceChaMod;
+    }
+
+    public void setRaceChaMod(int raceChaMod)
+    {
+        this.raceChaMod = raceChaMod;
     }
 
     public int getAcrobatics()
