@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class Race
 {
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private int raceId;
+    private String raceName;
     private int raceStrMod;
     private int raceDexMod;
     private int raceConMod;
@@ -36,6 +37,16 @@ public class Race
     public int getRaceId()
     {
         return raceId;
+    }
+
+    public String getRaceName()
+    {
+        return raceName;
+    }
+
+    public void setRaceName(String raceName)
+    {
+        this.raceName = raceName;
     }
 
     public int getRaceStrMod()

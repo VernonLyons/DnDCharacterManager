@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class Background
 {
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private int backgroundId;
+    private String backgroundName;
     private int acrobatics;
     private int animalHandling;
     private int arcana;
@@ -30,6 +31,16 @@ public class Background
     public int getBackgroundId()
     {
         return backgroundId;
+    }
+
+    public String getBackgroundName()
+    {
+        return backgroundName;
+    }
+
+    public void setBackgroundName(String backgroundName)
+    {
+        this.backgroundName = backgroundName;
     }
 
     public int getAcrobatics()
