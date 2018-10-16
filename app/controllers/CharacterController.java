@@ -36,7 +36,7 @@ public class CharacterController extends Controller
     @Transactional (readOnly = true)
     public Result getCharacterDetails()
     {
-        String sql = "SELECT NEW models.CharacterDetails(c.characterId, c.characterName, r.raceName, ct.classTypeName, b.backgroundName) " +
+        String sql = "SELECT NEW models.CharacterDetails(c.characterId, c.characterName, c.level, r.raceName, ct.classTypeName, b.backgroundName) " +
                      "FROM GameCharacter c JOIN Race r ON c.raceId = r.raceId " +
                      "LEFT OUTER JOIN ClassType ct ON c.classTypeId = ct.classTypeId " +
                      "LEFT OUTER JOIN Background b ON c.backgroundId = b.backgroundId";

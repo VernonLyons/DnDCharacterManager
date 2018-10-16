@@ -15,13 +15,14 @@
     <table class="table table-striped">
         <thread>
             <tr>
-                <th>Character Name</th><th>Race</th><th>Class</th><th>Background</th>
+                <th>Character Name</th><th>Level</th><th>Race</th><th>Class</th><th>Background</th>
             </tr>
         </thread>
         <tbody>
         @for(characterDetail <- characterDetails){
             <tr>
                 <td>@characterDetail.getCharacterName</td>
+                <td>@characterDetail.getLevel</td>
                 <td>@characterDetail.getRaceName</td>
                 <td>@characterDetail.getClassType</td>
                 <td>@characterDetail.getBackgroundName</td>
