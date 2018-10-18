@@ -82,6 +82,11 @@ public class GameCharacter
 
     public int getStrength()
     {
+        return strength;
+    }
+
+    public int getNewStrength()
+    {
         DieRoll dieRoll = new DieRoll();
         strength = dieRoll.getStrValue();
         return strength;
@@ -92,7 +97,13 @@ public class GameCharacter
         this.strength = strength;
     }
 
+
     public int getDexterity()
+    {
+        return dexterity;
+    }
+
+    public int getNewDexterity()
     {
         DieRoll dieRoll = new DieRoll();
         dexterity = dieRoll.getDexValue();
@@ -104,7 +115,13 @@ public class GameCharacter
         this.dexterity = dexterity;
     }
 
+
     public int getConstitution()
+    {
+        return constitution;
+    }
+
+    public int getNewConstitution()
     {
         DieRoll dieRoll = new DieRoll();
         constitution = dieRoll.getConValue();
@@ -118,6 +135,11 @@ public class GameCharacter
 
     public int getIntelligence()
     {
+        return intelligence;
+    }
+
+    public int getNewIntelligence()
+    {
         DieRoll dieRoll = new DieRoll();
         intelligence = dieRoll.getIntValue();
         return intelligence;
@@ -130,6 +152,11 @@ public class GameCharacter
 
     public int getWisdom()
     {
+        return wisdom;
+    }
+
+    public int getNewWisdom()
+    {
         DieRoll dieRoll = new DieRoll();
         wisdom = dieRoll.getWisValue();
         return wisdom;
@@ -140,7 +167,13 @@ public class GameCharacter
         this.wisdom = wisdom;
     }
 
+
     public int getCharisma()
+    {
+        return charisma;
+    }
+
+    public int getNewCharisma()
     {
         DieRoll dieRoll = new DieRoll();
         charisma = dieRoll.getChaValue();
