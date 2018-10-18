@@ -1,10 +1,75 @@
+@(gameCharacter : GameCharacter, races : List[Race], classTypes : List[ClassType], backgrounds : List[Background], previousCharacterId : Integer, nextCharacterId : Integer)
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit Character Information</title>
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="container-fluid">
+    <form method="POST">
+        @helper.CSRF.formField
+        <div class="row">
+            <div class="col-12"><h1 class="text-center">Edit Character Information</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="characterName">Name: </label>
+                    <input type="text" class="form-control" id="characterName" name="characterName" value="@gameCharacter.getCharacterName">
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label for="raceId">Race: </label>
+                <select id="raceId" class="form-control" name="raceId">
+                    <option value="" selected="selected">None</option>
+                    @for(races <- races){
+                    @if(races.getRaceId == gameCharacter.getRaceId){
+                    <option value="@races.getRaceId" selected="selected">@races.getRaceName</option>
+                    }else{
+                    <option value="@races.getRaceId">@races.getRaceName</option>
+                    }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label for="classTypeId">Class: </label>
+                <select id="classTypeId" class="form-control" name="classTypeId">
+                    <option value="" selected="selected">None</option>
+                    @for(classTypes <- classTypes){
+                    @if(classTypes.getClassTypeId == gameCharacter.getClassTypeId){
+                    <option value="@classTypes.getClassTypeId" selected="selected">@classTypes.getClassTypeName</option>
+                    }else{
+                    <option value="@classTypes.getClassTypeId">@classTypes.getClassTypeName</option>
+                    }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label for="backgroundId">Background: </label>
+                <select id="backgroundId" class="form-control" name="backgroundId">
+                    <option value="" selected="selected">None</option>
+                    @for(backgrounds <- backgrounds){
+                    @if(backgrounds.getBackgroundId == gameCharacter.getBackgroundId){
+                    <option value="@backgrounds.getBackgroundId" selected="selected">@backgrounds.getBackgroundName</option>
+                    }else{
+                    <option value="@backgrounds.getBackgroundId">@backgrounds.getBackgroundName</option>
+                    }
+                    }
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
 
 </body>
 </html>

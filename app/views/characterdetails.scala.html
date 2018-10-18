@@ -21,7 +21,7 @@
         <tbody>
         @for(characterDetail <- characterDetails){
             <tr>
-                <td>@characterDetail.getCharacterName</td>
+                <td><a href="/editcharacter/@characterDetail.getCharacterId">@characterDetail.getCharacterName</a></td>
                 <td>@characterDetail.getLevel</td>
                 <td>@characterDetail.getRaceName</td>
                 <td>@characterDetail.getClassType</td>
@@ -30,6 +30,11 @@
         }
         </tbody>
     </table>
+    <div class="row">
+        <div>
+            <a class="btn btn-primary btn-block">New Character</a>
+        </div>
+    </div>
 </div>
 </body>
 </html>
