@@ -86,6 +86,12 @@
                     </select>
                 </div>
             </div>
+            <div class="col-1">
+                <div class="form-group">
+                    <label for="hitDice">Hit Dice:</label>
+                    <input type="text" class="form-control" id="hitDice" value="d@gameCharacter.getHitDice">
+                </div>
+            </div>
             <div class="col-2">
                 <div class="form-group">
                     <label for="backgroundId">Background: </label>
@@ -105,8 +111,208 @@
         <div class="row">
             <div class="col-1">
                 <div class="form-group">
-                    <label for="str">Strength: </label>
-                    <input type="text" class="form-control" id="str" value="@gameCharacter.getStrength">
+                    <label for="strength">Strength: </label>
+                    <input type="text" class="form-control" id="strength" value="@gameCharacter.getStrength">
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="form-group">
+                    <label for="dexterity">Dexterity: </label>
+                    <input type="text" class="form-control" id="dexterity" value="@gameCharacter.getDexterity">
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="form-group">
+                    <label for="constitution">Constitution: </label>
+                    <input type="text" class="form-control" id="constitution" value="@gameCharacter.getConstitution">
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="form-group">
+                    <label for="intelligence">Intelligence: </label>
+                    <input type="text" class="form-control" id="intelligence" value="@gameCharacter.getIntelligence">
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="form-group">
+                    <label for="wisdom">Wisdom: </label>
+                    <input type="text" class="form-control" id="wisdom" value="@gameCharacter.getWisdom">
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="form-group">
+                    <label for="charisma">charisma: </label>
+                    <input type="text" class="form-control" id="charisma" value="@gameCharacter.getCharisma">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getAcrobatics == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Acrobatics
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Acrobatics
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getAnimalHandling == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">AnimalHandling
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">AnimalHandling
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getArcana == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Arcana
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Arcana
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getAthletics == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Athletics
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Athletics
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getDeception == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Deception
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Deception
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getHistory == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">History
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">History
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getInsight == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Insight
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Insight
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getIntimidation == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Intimidation
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Intimidation
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getInvestigation == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Investigation
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Investigation
+                        }
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getMedicine == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Medicine
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Medicine
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getNature == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Nature
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Nature
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getPerception == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Perception
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Perception
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getPerformance == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Performance
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Performance
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getPersuasion == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Persuasion
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Persuasion
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getReligion == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Religion
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Religion
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getSleightOfHand == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Sleight of Hand
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Sleight of Hand
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getStealth == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Stealth
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Stealth
+                        }
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        @if(gameCharacter.getSurvival == 1){
+                        <input type="checkbox" class="form-check-input" checked="checked" value="">Survival
+                        }else{
+                        <input type="checkbox" class="form-check-input" value="">Survival
+                        }
+                    </label>
                 </div>
             </div>
         </div>
