@@ -7,7 +7,6 @@ import play.db.jpa.JPAApi;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
-import scala.Int;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -22,6 +21,262 @@ public class CharacterController extends Controller
     {
         this.formFactory = formFactory;
         this.jpaApi = jpaApi;
+    }
+
+    @Transactional
+    public Result getNewCharacter()
+    {
+        String raceSQL = "SELECT r FROM Race r";
+        List<Race> races = jpaApi.em().createQuery(raceSQL, Race.class).getResultList();
+
+        String classTypeSQL = "SELECT ct FROM ClassType ct";
+        List<ClassType> classTypes = jpaApi.em().createQuery(classTypeSQL, ClassType.class).getResultList();
+
+        String backgroundSQL = "SELECT b FROM Background b";
+        List<Background> backgrounds = jpaApi.em().createQuery(backgroundSQL, Background.class).getResultList();
+
+        return ok(views.html.newcharacter.render(races, classTypes, backgrounds));
+    }
+
+    @Transactional
+    public Result postNewCharacter()
+    {
+        DynamicForm form = formFactory.form().bindFromRequest();
+        String result;
+
+        Ability ability = new Ability();
+        Background background = new Background();
+        BackgroundAbility backgroundAbility = new BackgroundAbility();
+        ClassType classType = new ClassType();
+        ClassTypeAbility classTypeAbility = new ClassTypeAbility();
+        GameCharacter gameCharacter = new GameCharacter();
+        Race race = new Race();
+        RaceAbility raceAbility = new RaceAbility();
+
+        String raceSQL = "SELECT r FROM Race r";
+        List<Race> races = jpaApi.em().createQuery(raceSQL, Race.class).getResultList();
+
+        String classTypeSQL = "SELECT ct FROM ClassType ct";
+        List<ClassType> classTypes = jpaApi.em().createQuery(classTypeSQL, ClassType.class).getResultList();
+
+        String backgroundSQL = "SELECT b FROM Background b";
+        List<Background> backgrounds = jpaApi.em().createQuery(backgroundSQL, Background.class).getResultList();
+
+        String characterName = form.get("characterName");
+        if (characterName != null && characterName.length() >= 2)
+        {
+            result = "Saved";
+        }
+        else
+        {
+            result = "Invalid Entries";
+        }
+        int raceId = Integer.parseInt(form.get("raceId"));
+        int classTypeId = Integer.parseInt(form.get("classTypeId"));
+        int hitDice = classType.getHitDice();
+        int backgroundId = Integer.parseInt(form.get("backgroundId"));
+        int level = Integer.parseInt(form.get("level"));
+        int strength = gameCharacter.getNewStrength();
+        int dexterity = gameCharacter.getNewDexterity();
+        int constitution = gameCharacter.getNewConstitution();
+        int intelligence = gameCharacter.getNewIntelligence();
+        int wisdom = gameCharacter.getNewWisdom();
+        int charisma = gameCharacter.getNewCharisma();
+        int acrobatics;
+        if (race.getAcrobatics() == 1 || classType.getAcrobatics() == 1 || background.getAcrobatics() == 1)
+        {
+            acrobatics = 1;
+        }
+        else
+        {
+            acrobatics = 0;
+        }
+        int animalHandling;
+        if (race.getAnimalHandling() == 1 || classType.getAnimalHandling() == 1 || background.getAnimalHandling() == 1)
+        {
+            animalHandling = 1;
+        }
+        else
+        {
+            animalHandling = 0;
+        }
+        int arcana;
+        if (race.getArcana() == 1 || classType.getArcana() == 1 || background.getArcana() == 1)
+        {
+            arcana = 1;
+        }
+        else
+        {
+            arcana = 0;
+        }
+        int athletics;
+        if (race.getAthletics() == 1 || classType.getAthletics() == 1 || background.getAthletics() == 1)
+        {
+            athletics = 1;
+        }
+        else
+        {
+            athletics = 0;
+        }
+        int deception;
+        if (race.getDeception() == 1 || classType.getDeception() == 1 || background.getDeception() == 1)
+        {
+            deception = 1;
+        }
+        else
+        {
+            deception = 0;
+        }
+        int history;
+        if (race.getHistory() == 1 || classType.getHistory() == 1 || background.getHistory() == 1)
+        {
+            history = 1;
+        }
+        else
+        {
+            history = 0;
+        }
+        int insight;
+        if (race.getInsight() == 1 || classType.getInsight() == 1 || background.getInsight() == 1)
+        {
+            insight = 1;
+        }
+        else
+        {
+            insight = 0;
+        }
+        int intimidation;
+        if (race.getIntimidation() == 1 || classType.getIntimidation() == 1 || background.getIntimidation() == 1)
+        {
+            intimidation = 1;
+        }
+        else
+        {
+            intimidation = 0;
+        }
+        int investigation;
+        if (race.getInvestigation() == 1 || classType.getInvestigation() == 1 || background.getInvestigation() == 1)
+        {
+            investigation = 1;
+        }
+        else
+        {
+            investigation = 0;
+        }
+        int medicine;
+        if (race.getMedicine() == 1 || classType.getMedicine() == 1 || background.getMedicine() == 1)
+        {
+            medicine = 1;
+        }
+        else
+        {
+            medicine = 0;
+        }
+        int nature;
+        if (race.getNature() == 1 || classType.getNature() == 1 || background.getNature() == 1)
+        {
+            nature = 1;
+        }
+        else
+        {
+            nature = 0;
+        }
+        int perception;
+        if (race.getPerception() == 1 || classType.getPerception() == 1 || background.getPerception() == 1)
+        {
+            perception = 1;
+        }
+        else
+        {
+            perception = 0;
+        }
+        int performance;
+        if (race.getPerformance() == 1 || classType.getPerformance() == 1 || background.getPerformance() == 1)
+        {
+            performance = 1;
+        }
+        else
+        {
+            performance = 0;
+        }
+        int persuasion;
+        if (race.getPersuasion() == 1 || classType.getPersuasion() == 1 || background.getPersuasion() == 1)
+        {
+            persuasion = 1;
+        }
+        else
+        {
+            persuasion = 0;
+        }
+        int religion;
+        if (race.getReligion() == 1 || classType.getReligion() == 1 || background.getReligion() == 1)
+        {
+            religion = 1;
+        }
+        else
+        {
+            religion = 0;
+        }
+        int sleightOfHand;
+        if (race.getSleightOfHand() == 1 || classType.getSleightOfHand() == 1 || background.getSleightOfHand() == 1)
+        {
+            sleightOfHand = 1;
+        }
+        else
+        {
+            sleightOfHand = 0;
+        }
+        int stealth;
+        if (race.getStealth() == 1 || classType.getStealth() == 1 || background.getStealth() == 1)
+        {
+            stealth = 1;
+        }
+        else
+        {
+            stealth = 0;
+        }
+        int survival;
+        if (race.getSurvival() == 1 || classType.getSurvival() == 1 || background.getSurvival() == 1)
+        {
+            survival = 1;
+        }
+        else
+        {
+            survival = 0;
+        }
+
+        gameCharacter.setCharacterName(characterName);
+        gameCharacter.setLevel(level);
+        gameCharacter.setStrength(strength);
+        gameCharacter.setDexterity(dexterity);
+        gameCharacter.setConstitution(constitution);
+        gameCharacter.setIntelligence(intelligence);
+        gameCharacter.setWisdom(wisdom);
+        gameCharacter.setCharisma(charisma);
+        gameCharacter.setRaceId(raceId);
+        gameCharacter.setClassTypeId(classTypeId);
+        gameCharacter.setHitDice(hitDice);
+        gameCharacter.setBackgroundId(backgroundId);
+        gameCharacter.setAcrobatics(acrobatics);
+        gameCharacter.setAnimalHandling(animalHandling);
+        gameCharacter.setArcana(arcana);
+        gameCharacter.setAthletics(athletics);
+        gameCharacter.setDeception(deception);
+        gameCharacter.setHistory(history);
+        gameCharacter.setInsight(insight);
+        gameCharacter.setIntimidation(intimidation);
+        gameCharacter.setInvestigation(investigation);
+        gameCharacter.setMedicine(medicine);
+        gameCharacter.setNature(nature);
+        gameCharacter.setPerception(perception);
+        gameCharacter.setPerformance(performance);
+        gameCharacter.setPersuasion(persuasion);
+        gameCharacter.setReligion(religion);
+        gameCharacter.setSleightOfHand(sleightOfHand);
+        gameCharacter.setStealth(stealth);
+        gameCharacter.setSurvival(survival);
+
+        return ok(result);
     }
 
     @Transactional

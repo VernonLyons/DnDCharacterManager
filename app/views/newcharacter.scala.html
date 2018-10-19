@@ -1,0 +1,64 @@
+@(races : List[Race], classTypes : List[ClassType], backgrounds : List[Background])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Character</title>
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <h3>Add New Character</h3>
+    <form method="POST">
+        @helper.CSRF.formField
+        <label>Character Name: </label><input id="characterName" name="characterName" type="text"><br>
+        <div class="col-1">
+            <div class="form-group">
+                <label for="level">Level: </label>
+                <select id="level" class="form-control" name="level">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+        <label>Race:</label>
+        <div class="col-2">
+            <select id="raceId" class="form-control" name="raceId">
+                <option value="" selected="selected">None</option>
+                @for(races <- races){
+                <option value="@races.getRaceId">@races.getRaceName</option>
+                }
+            </select>
+        </div>
+        <label>Class:</label>
+        <div class="col-2">
+            <select id="classTypeId" class="form-control" name="classTypeId">
+                <option value="" selected="selected">None</option>
+                @for(classTypes <- classTypes){
+                <option value="@classTypes.getClassTypeId">@classTypes.getClassTypeName</option>
+                }
+            </select>
+        </div>
+        <label>Background:</label>
+        <div class="col-2">
+            <select id="backgroundId" class="form-control" name="backgroundId">
+                <option value="" selected="selected">None</option>
+                @for(backgrounds <- backgrounds){
+                <option value="@backgrounds.getBackgroundId">@backgrounds.getBackgroundName</option>
+                }
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <input type="submit" value="Save">
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

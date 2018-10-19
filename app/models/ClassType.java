@@ -21,6 +21,7 @@ public class ClassType
     private int intimidation;
     private int investigation;
     private int medicine;
+    private int nature;
     private int perception;
     private int performance;
     private int persuasion;
@@ -152,6 +153,16 @@ public class ClassType
     public void setMedicine(int medicine)
     {
         this.medicine = medicine;
+    }
+
+    public int getNature()
+    {
+        return nature;
+    }
+
+    public void setNature(int nature)
+    {
+        this.nature = nature;
     }
 
     public int getPerception()

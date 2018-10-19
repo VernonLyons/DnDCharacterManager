@@ -7,7 +7,11 @@
 GET     /                               controllers.CharacterController.getCharacterDetails
 
 GET     /character/:characterId         controllers.CharacterController.getCharacter(characterId:Integer)
-GET     /editcharacter/:characterId     controllers.CharacterController.getEditCharacter(characterId:Integer)
 
+GET     /editcharacter/:characterId     controllers.CharacterController.getEditCharacter(characterId:Integer)
+POST    /editcharacter/:characterId     controllers.CharacterController.postEditCharacter(characterId:Integer)
+
+GET     /newcharacter                   controllers.CharacterController.getNewCharacter
+POST    /newcharacter                   controllers.CharacterController.postNewCharacter
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file                   controllers.Assets.versioned(path="/public", file: Asset)
