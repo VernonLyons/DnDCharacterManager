@@ -44,14 +44,10 @@ public class CharacterController extends Controller
         DynamicForm form = formFactory.form().bindFromRequest();
         String result;
 
-        Ability ability = new Ability();
         Background background = new Background();
-        BackgroundAbility backgroundAbility = new BackgroundAbility();
         ClassType classType = new ClassType();
-        ClassTypeAbility classTypeAbility = new ClassTypeAbility();
         GameCharacter gameCharacter = new GameCharacter();
         Race race = new Race();
-        RaceAbility raceAbility = new RaceAbility();
 
         String raceSQL = "SELECT r FROM Race r";
         List<Race> races = jpaApi.em().createQuery(raceSQL, Race.class).getResultList();
