@@ -21,10 +21,11 @@ public class DieRoll
 
     public int getStrValue()
     {
-        int dieRollOne = roll();
-        int dieRollTwo = roll();
-        int dieRollThree = roll();
-        int dieRollFour = roll();
+        DieRoll dieRoll = new DieRoll();
+        int dieRollOne = dieRoll.roll();
+        int dieRollTwo = dieRoll.roll();
+        int dieRollThree = dieRoll.roll();
+        int dieRollFour = dieRoll.roll();
         int smallest = Math.min(dieRollOne, Math.min(dieRollTwo, Math.min(dieRollThree, dieRollFour)));
 
         strValue = (dieRollOne + dieRollTwo + dieRollThree + dieRollFour) - smallest;
@@ -34,13 +35,14 @@ public class DieRoll
 
     public int getDexValue()
     {
-        int dieRollOne = roll();
-        int dieRollTwo = roll();
-        int dieRollThree = roll();
-        int dieRollFour = roll();
+        DieRoll dieRoll = new DieRoll();
+        int dieRollOne = dieRoll.roll();
+        int dieRollTwo = dieRoll.roll();
+        int dieRollThree = dieRoll.roll();
+        int dieRollFour = dieRoll.roll();
         int smallest = Math.min(dieRollOne, Math.min(dieRollTwo, Math.min(dieRollThree, dieRollFour)));
 
-        strValue = (dieRollOne + dieRollTwo + dieRollThree + dieRollFour) - smallest;
+        dexValue = (dieRollOne + dieRollTwo + dieRollThree + dieRollFour) - smallest;
 
         return dexValue;
     }
@@ -53,7 +55,7 @@ public class DieRoll
         int dieRollFour = roll();
         int smallest = Math.min(dieRollOne, Math.min(dieRollTwo, Math.min(dieRollThree, dieRollFour)));
 
-        strValue = (dieRollOne + dieRollTwo + dieRollThree + dieRollFour) - smallest;
+        conValue = (dieRollOne + dieRollTwo + dieRollThree + dieRollFour) - smallest;
 
         return conValue;
     }
@@ -66,7 +68,7 @@ public class DieRoll
         int dieRollFour = roll();
         int smallest = Math.min(dieRollOne, Math.min(dieRollTwo, Math.min(dieRollThree, dieRollFour)));
 
-        strValue = (dieRollOne + dieRollTwo + dieRollThree + dieRollFour) - smallest;
+        intValue = (dieRollOne + dieRollTwo + dieRollThree + dieRollFour) - smallest;
 
         return intValue;
     }
@@ -79,7 +81,7 @@ public class DieRoll
         int dieRollFour = roll();
         int smallest = Math.min(dieRollOne, Math.min(dieRollTwo, Math.min(dieRollThree, dieRollFour)));
 
-        strValue = (dieRollOne + dieRollTwo + dieRollThree + dieRollFour) - smallest;
+        wisValue = (dieRollOne + dieRollTwo + dieRollThree + dieRollFour) - smallest;
 
         return wisValue;
     }
@@ -92,7 +94,7 @@ public class DieRoll
         int dieRollFour = roll();
         int smallest = Math.min(dieRollOne, Math.min(dieRollTwo, Math.min(dieRollThree, dieRollFour)));
 
-        strValue = (dieRollOne + dieRollTwo + dieRollThree + dieRollFour) - smallest;
+        chaValue = (dieRollOne + dieRollTwo + dieRollThree + dieRollFour) - smallest;
 
         return chaValue;
     }

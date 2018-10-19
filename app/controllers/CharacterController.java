@@ -352,10 +352,11 @@ public class CharacterController extends Controller
     @Transactional
     public Result postEditCharacter(int characterId)
     {
+        DynamicForm form = formFactory.form().bindFromRequest();
+
         String characterSQL = "SELECT c FROM GameCharacter WHERE characterId = :characterId";
         GameCharacter gameCharacter = jpaApi.em().createQuery(characterSQL, GameCharacter.class).setParameter("characterId", characterId).getSingleResult();
 
-        DynamicForm form = formFactory.form().bindFromRequest();
         String characterName = form.get("characterName");
         int level = Integer.parseInt(form.get("level"));
         int raceId = Integer.parseInt(form.get("raceId"));
