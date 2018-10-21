@@ -7,7 +7,6 @@ import play.db.jpa.JPAApi;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
-
 import javax.inject.Inject;
 import java.util.List;
 
@@ -46,25 +45,26 @@ public class CharacterController extends Controller
         String characterName = form.get("characterName");
         String result;
 
-        Background background = new Background();
-        ClassType classType = new ClassType();
-        Race race = new Race();
-
-        String raceSQL = "SELECT r FROM Race r";
-        List<Race> races = jpaApi.em().createQuery(raceSQL, Race.class).getResultList();
-
-        String classTypeSQL = "SELECT ct FROM ClassType ct";
-        List<ClassType> classTypes = jpaApi.em().createQuery(classTypeSQL, ClassType.class).getResultList();
-
-        String backgroundSQL = "SELECT b FROM Background b";
-        List<Background> backgrounds = jpaApi.em().createQuery(backgroundSQL, Background.class).getResultList();
+        Background background;
+        ClassType classType;
+        Race race;
 
         GameCharacter gameCharacter = new GameCharacter();
 
         int raceId = Integer.parseInt(form.get("raceId"));
+        String raceSQL = "SELECT r FROM Race r WHERE RaceId = :raceId";
+        race = jpaApi.em().createQuery(raceSQL, Race.class).setParameter("raceId", raceId).getSingleResult();
+
         int classTypeId = Integer.parseInt(form.get("classTypeId"));
+        String classTypeSQL = "SELECT ct FROM ClassType ct WHERE ClassTypeId = :classId";
+        classType = jpaApi.em().createQuery(classTypeSQL, ClassType.class).setParameter("classId", classTypeId).getSingleResult();
+
+        //classType = classTypes.get(0);
         int hitDice = classType.getHitDice();
         int backgroundId = Integer.parseInt(form.get("backgroundId"));
+        String backgroundSQL = "SELECT b FROM Background b WHERE BackgroundId = :backgroundId";
+        background = jpaApi.em().createQuery(backgroundSQL, Background.class).setParameter("backgroundId", backgroundId).getSingleResult();
+
         int level = Integer.parseInt(form.get("level"));
         int strength = gameCharacter.getNewStrength();
         int dexterity = gameCharacter.getNewDexterity();
@@ -347,7 +347,7 @@ public class CharacterController extends Controller
     {
         DynamicForm form = formFactory.form().bindFromRequest();
 
-        String characterSQL = "SELECT c FROM GameCharacter WHERE characterId = :characterId";
+        String characterSQL = "SELECT c FROM GameCharacter c WHERE characterId = :characterId";
         GameCharacter gameCharacter = jpaApi.em().createQuery(characterSQL, GameCharacter.class).setParameter("characterId", characterId).getSingleResult();
 
         String characterName = form.get("characterName");

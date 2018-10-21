@@ -11,6 +11,8 @@ GET     /character/:characterId         controllers.CharacterController.getChara
 GET     /editcharacter/:characterId     controllers.CharacterController.getEditCharacter(characterId:Integer)
 POST    /editcharacter/:characterId     controllers.CharacterController.postEditCharacter(characterId:Integer)
 
+GET    /deletecharacter/:characterId     controllers.CharacterController.deleteCharacter(characterId:Integer)
+
 GET     /newcharacter                   controllers.CharacterController.getNewCharacter
 POST    /newcharacter                   controllers.CharacterController.postNewCharacter
 
